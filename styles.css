@@ -1,5 +1,5 @@
 body {
-    background-color: #121212;
+    background-color: #000;
     color: #f0f0f0;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background: #1e1e1e;
+    background: #181818;
     padding: 1rem;
     text-align: center;
 }
@@ -19,11 +19,23 @@ nav a {
 }
 
 main {
-    padding: 2rem;
+    padding: 2rem 1rem 4rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-/* Limit the width of images in the homepage gallery */
-/* ...existing code... */
+/* Photo row with image and caption */
+.photo-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    max-width: 900px;
+    margin-left: 0;
+    margin-right: auto;
+    flex-wrap: wrap;
+}
 
 .image-watermark-container {
     position: relative;
@@ -36,51 +48,65 @@ main {
     height: auto;
     display: block;
     margin: 0;
+    border-radius: 8px;
+    border: 2px solid #222;
 }
-.highlight-offer {
-    font-weight: bold;
-    color: #ff8fd8;
-    font-size: 1.5em;
-    margin-bottom: 1em;
-}
-main h2 {
-    font-size: 2.2em;
-    margin-bottom: 0.7em;
-}
+
+/* Watermark on image */
 .watermark-text {
     position: absolute;
-    bottom: 10px;
-    right: 14px;
+    bottom: 12px;
+    right: 16px;
     color: rgba(255,255,255,0.75);
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: bold;
     text-shadow: 1px 1px 4px #000, 0 0 2px #000;
     pointer-events: none;
     user-select: none;
     z-index: 2;
     letter-spacing: 1px;
-    padding: 2px 8px;
+    padding: 4px 10px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 4px;
 }
 
-/* ...existing code... */
+.caption {
+    max-width: 480px;
+    font-size: 1.1em;
+    padding: 0.5em 0.8em;
+    background: rgba(24,24,24,0.8);
+    border-radius: 6px;
+    margin-left: 0.5em;
+}
 
-/* Center the photo rows and add spacing */
-.photo-row {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 2rem;
-    margin-bottom: 2.5rem;
-    max-width: 700px;
-    margin-left: 0;    /* Changed from auto to 0 to align left */
-    margin-right: auto;
+/* Responsive: stack photo and caption on mobile */
+@media (max-width: 700px) {
+    .photo-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .caption {
+        margin-left: 0;
+        margin-top: 0.7em;
+    }
+}
+
+/* Header and section styles */
+main h2 {
+    font-size: 2em;
+    margin-bottom: 0.7em;
+    color: #ff8fd8;
 }
 
 footer {
-    background: #1e1e1e;
+    background: #181818;
     text-align: center;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     position: fixed;
     width: 100%;
     bottom: 0;
+    font-size: 1em;
+    color: #eee;
+    border-top: 1px solid #222;
 }
